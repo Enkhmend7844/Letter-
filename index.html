@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For my pretty Rosbeilin🌸💌</title>
+  <!-- Cute font from Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(145deg, #fdeff2 0%, #ffe4e9 100%);
+      font-family: 'Quicksand', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 1.5rem 1rem;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 3rem;
+      color: #d44e6c;
+      text-shadow: 3px 3px 0 #fbc1c6;
+      margin-bottom: 0.5rem;
+      letter-spacing: 6px;
+      transform: rotate(-1deg);
+    }
+
+    /* ----- ENVELOPE ----- */
+    .envelope-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 5.0rem 0 2.5rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .envelope-wrapper:active {
+      transform: scale(0.98);
+    }
+
+    .envelope {
+      position: relative;
+      width: 380px;
+      height: 300px;
+      background: #f9ced6;
+      border-radius: 12px 12px 8px 8px;
+      box-shadow: 0 15px 20px rgba(190, 80, 120, 0.2), 0 4px 10px rgba(0,0,0,0.1);
+      border: 10px solid #ffb3b3;
+    }
+
+    .envelope::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 190px solid transparent;
+      border-right: 180px solid transparent;
+      border-bottom: 95px solid #fbb1c2;
+      filter: drop-shadow(0 -2px 3px rgba(200, 120, 140, 0.2));
+      z-index: 3;
+    }
+
+    .envelope::after {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 20px;
+      width: 100px;
+      height: 50px;
+      background: #ffd9e2;
+      border-radius: 30px 30px 0 0;
+      transform: rotate(-5deg);
+      box-shadow: 0 -2px 5px #ffb6c9;
+      z-index: 5;
+      opacity: 0.8;
+    }
+
+    .envelope-body {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffe2e8;
+      border-radius: 8px;
+      border: 2px dashed #ff98aa;
+      box-shadow: inset 0 2px 10px #ffccd5;
+    }
+
+    .click-text {
+      font-family: 'Caveat', cursive;
+      font-size: 2.8rem;
+      color: #b3435e;
+      background: rgba(255,255,240,0.6);
+      padding: 0.7rem 1.2rem;
+      border-radius: 40px;
+      box-shadow: 0 2px 8px #ffb0b0;
+      transform: rotate(-2deg);
+      transition: all 0.2s;
+    }
+
+    /* ----- LETTER PAPER (hidden initially) ----- */
+    .letter-paper {
+      background: #fffaf2;
+      max-width: 500px;
+      margin: 1rem auto 2.5rem;
+      padding: 2rem 2rem 2rem 2.5rem;
+      border-radius: 40px 20px 40px 20px;
+      box-shadow: 0 20px 30px rgba(200, 120, 140, 0.25),
+                  inset 0 0 0 2px #ffe2d4,
+                  inset 0 0 0 6px #fff1e6;
+      font-family: 'Caveat', cursive;
+      font-size: 1.7rem;
+      line-height: 1.4;
+      color: #613b47;
+      text-align: left;
+      position: relative;
+      transform: rotate(0.5deg);
+      border: 2px solid #ffb9b9;
+    }
+
+    .letter-paper p {
+      margin: 0;
+      white-space: pre-line;
+    }
+
+    .letter-paper::before {
+      content: '❤️';
+      position: absolute;
+      bottom: 15px;
+      right: 20px;
+      font-size: 2rem;
+      opacity: 0.3;
+      transform: rotate(10deg);
+    }
+
+    .close-letter {
+      display: inline-block;
+      margin-top: 20px;
+      background: #ffc2c9;
+      border: none;
+      border-radius: 60px;
+      padding: 0.6rem 1.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #481f2b;
+      cursor: pointer;
+      box-shadow: 0 6px 0 #b16f7c;
+      transition: 0.07s linear;
+      font-family: 'Quicksand', sans-serif;
+      border: 2px solid #ffe8ec;
+    }
+
+    .close-letter:active {
+      transform: translateY(6px);
+      box-shadow: 0 0 0 #b16f7c;
+    }
+
+    /* ----- MEMORIES GALLERY (always visible) ----- */
+    .memories-title {
+      font-family: 'Caveat', cursive;
+      font-size: 2.8rem;
+      color: #c8516f;
+      margin: 2rem 0 1rem;
+      border-bottom: 4px dotted #ffb1c0;
+      display: inline-block;
+      padding-bottom: 0.2rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem 1.5rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .memory-card {
+      background: #fff7f9;
+      border-radius: 45px 30px 45px 30px;
+      padding: 1.2rem 1rem 1.5rem;
+      box-shadow: 15px 15px 0 #ffccd9, 0 8px 20px rgba(170, 100, 120, 0.3);
+      border: 3px solid rgb(185, 103, 103);
+      transition: transform 0.2s;
+    }
+
+    .memory-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 18px 18px 0 #feadba, 0 12px 28px rgba(170, 100, 120, 0.4);
+    }
+
+    .memory-card img,
+    .memory-card video {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 30px 10px 30px 10px;
+      border: 4px solid white;
+      box-shadow: 0 5px 0 #feadba;
+      background: #ffe3e8;
+    }
+
+    .memory-card video {
+      object-fit: cover; /* keeps poster/ video nice */
+    }
+
+    .memory-desc {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #8f4761;
+      margin-top: 1rem;
+      background: #ffeef2;
+      padding: 0.6rem 0.8rem;
+      border-radius: 50px;
+      border: 2px dashed #ff98b0;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    /* heart decoration */
+    .memory-desc::before {
+      margin-right: 6px;
+      font-size: 1.2rem;
+    }
+    .memory-desc::after {
+      margin-left: 6px;
+      font-size: 1.2rem;
+    }
+
+    /* utility visibility */
+    .hidden {
+      display: none !important;
+    }
+
+    /* extra cuteness */
+    .footer-hearts {
+      margin: 3rem 0 0.5rem;
+      font-size: 1.8rem;
+      letter-spacing: 5px;
+      opacity: 0.7;
+    }
+
+    /* responsive */
+    @media (max-width: 550px) {
+      h1 { font-size: 2.5rem; }
+      .envelope { width: 240px; height: 170px; }
+      .envelope::before { border-left: 120px solid transparent; border-right: 120px solid transparent; border-bottom: 38px solid #fbb1c2; top: -30px; }
+      .envelope::after { width: 60px; height: 22px; left: 18px; top: -8px; }
+      .click-text { font-size: 1.5rem; }
+      .letter-paper { font-size: 1.4rem; padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>For my pretty Rosbeilin🌸💌</h1>
+
+  <!-- ENVELOPE (click to open) -->
+  <div id="envelopeWrapper" class="envelope-wrapper" onclick="openLetter()">
+    <div class="envelope">
+      <div class="envelope-body">
+        <span class="click-text">💌 open me</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LETTER (hidden initially) -->
+  <div id="letterPaper" class="letter-paper hidden">
+    <p>
+      Dear Rosie,<br><br>
+
+Te envío mis saludos en el día en que estás leyendo esta carta. Perdóname por no haberte felicitado en tu cumpleaños. Aunque ya haya pasado, por favor acepta esta carta como un saludo de cumpleaños. Espero que ChatGPT haya traducido bien el significado. Por favor mira las fotos y los videos de abajo junto con Gilian. Después de luchar con la IA durante varias horas, finalmente terminé de hacer este sitio. Espero que te haya parecido interesante. Mientras añadía estas fotos y videos, no puedo expresar con palabras cuánto los extrañé a Gilian y a ti. El verano que pasamos juntos el año pasado estuvo realmente lleno de recuerdos maravillosos.
+
+El tiempo que pasé en Estados Unidos fue feliz gracias a ustedes dos. Aunque tenía amigos en Mongolia, con muchos de ellos no podía ser completamente yo misma; a menudo sentía una cierta distancia con las personas, e incluso a veces pensaba que el problema estaba en mí. Pero ustedes dos me hacen sentir como si estuviera en un hogar cálido y cómodo. En realidad, no había nada malo conmigo; simplemente me di cuenta de que no había encontrado a las personas que realmente combinaban conmigo. Cuando regresé a Mongolia, me sentí bastante sola. A menudo quería volver al tiempo en que estaba en Estados Unidos con ustedes. Los días pasaban de manera repetitiva y aburrida. Espero poder volver a verlos a los dos este verano.
+
+Querida Rosie, eres una de las personas en quienes puedo confiar y que se ha convertido en uno de mis mayores apoyos. Como soy la hija mayor de la familia, no siempre siento el cariño y el cuidado de otras personas. Tú siempre me hiciste sentir como si tuviera una hermana mayor. Cuando estábamos juntas, no tenía que preocuparme por nada; encontraba tranquilidad contigo. De alguna manera, siempre logras manejar las cosas sin estresarte demasiado. Me encanta —e incluso a veces te envidio— tu forma directa de decir lo que piensas, incluso cuando hablas con el gerente, jaja. Espero que en el futuro nos convirtamos en mujeres ricas y exitosas y que viajemos juntas a otros países para divertirnos. También espero con muchas ganas el día en que ustedes dos vengan a Mongolia y pasemos tiempo juntas aquí.
+
+Rosie, aunque no hablemos por chat muy seguido, por favor no olvides que te quiero y que siempre te recuerdo. Eres increíble y podrás lograr todo lo que deseas. Cuando me extrañes, mira estas fotos y videos.
+
+Te quiero mucho. Te mando un abrazo muy fuerte.💕 <br>
+      From pretty Emi <br>
+    </p>
+    <button class="close-letter" onclick="closeLetter()">✉️ back to envelope</button>
+  </div>
+
+  <!-- MEMORIES GALLERY (always visible, no toggle needed) -->
+  <div class="memories-title">Our memories in Wisconsin 2025(๑ᵔ⤙ᵔ๑)🌺</div>
+  <div class="gallery">
+    <!-- photo 1 -->
+    <div class="memory-card">
+      <img src="0a2a4625-1909-4ff0-9381-e8d12c1f6432.jpg" alt="cute memory" loading="lazy">
+      <div class="memory-desc">August 15💕</div>
+    </div>
+    <!-- photo 2 -->
+    <div class="memory-card">
+      <img src="2d254607-b3dd-4b0c-a367-3d06c392517a.jpg" alt="cute moment" loading="lazy">
+      <div class="memory-desc">August 15, girls with cool glasses😎</div>
+    </div>
+    <!-- video card -->
+    <div class="memory-card">
+      <video controls poster="1.mp4">
+        <source src="1.mp4" type="video/mp4">
+        Your browser doesn't support video.
+      </video>
+      <div class="memory-desc">July 20, Americans drink syrup, so we always have to refill 🥞</div>
+    </div>
+    <!-- photo 3 -->
+    <div class="memory-card">
+      <img src="05bb0f18-3381-4a75-a750-51ca233e1c66.jpg" alt="cozy memory">
+      <div class="memory-desc">August 15, Created a heart💗</div>
+    </div>
+    <!-- extra video / second video with desc -->
+    <div class="memory-card">
+      <video controls poster="2.mp4">
+        <source src="2.mp4" type="video/mp4">
+      </video>
+      <div class="memory-desc">August 22, Emi's cute cheeks😚</div>
+    </div>
+    <!-- photo 4 -->
+    <div class="memory-card">
+      <img src="7eeecf45-764b-4d29-bf4f-6ed5774b2ac5.jpg" alt="star night">
+      <div class="memory-desc">My favorite gift🎁</div>
+    </div>
+    <!-- photo 5 -->
+    <div class="memory-card">
+      <img src="8cbdc0f9-36d6-41eb-98de-da289f078666.jpg" alt="cute memory" loading="lazy">
+      <div class="memory-desc">August 22,💕</div>
+    </div>
+    <!-- photo 6 -->
+    <div class="memory-card">
+      <img src="9d9347cf-2668-4045-9d0d-275e1fdb65e3.jpg" alt="cute moment" loading="lazy">
+      <div class="memory-desc">August 28, Cute us. (˶ ˘ ³˘)ˆᵕ ˆ˶) </div>
+    </div>
+    <!-- video card (with short description) -->
+    <div class="memory-card">
+      <video controls poster="3.mp4">
+        <source src="3.mp4" type="video/mp4">
+        Your browser doesn't support video.
+      </video>
+      <div class="memory-desc">August 22, On the boat🚢</div>
+    </div>
+    <!-- video card (with short description) -->
+    <div class="memory-card">
+      <video controls poster="4.mp4">
+        <source src="4.mp4" type="video/mp4">
+        Your browser doesn't support video.
+      </video>
+      <div class="memory-desc">August 22, Spinning spinning😵‍💫</div>
+    </div>
+    <!-- photo 7 -->
+    <div class="memory-card">
+      <img src="9ec26d01-d6de-4bee-954f-8db1109e4f35.jpg" alt="cute memory" loading="lazy">
+      <div class="memory-desc">August 22, Really interesting place🧐</div>
+    </div>
+    <!-- photo 8 -->
+    <div class="memory-card">
+      <img src="34a2f5c9-778f-4ea1-8880-4a5a6afbd660.jpg" alt="cute moment" loading="lazy">
+      <div class="memory-desc">September 1, The last day of the 2025🥺</div>
+    </div>
+    <!-- photo 9 -->
+    <div class="memory-card">
+      <img src="44ba5e54-9a3c-41d1-8a5d-b6b830c5b098.jpg" alt="cute memory" loading="lazy">
+      <div class="memory-desc">July 25, First day out together🌸</div>
+    </div>
+    <!-- photo 10 -->
+    <div class="memory-card">
+      <img src="66cde5ce-a668-463d-a5ab-af0486771bb3.jpg" alt="cute moment" loading="lazy">
+      <div class="memory-desc">August 22, Smile😁</div>
+    </div>
+    <!-- video card (with short description) -->
+    <div class="memory-card">
+      <video controls poster="5.mp4">
+        <source src="5.mp4" type="video/mp4">
+        Your browser doesn't support video.
+      </video>
+      <div class="memory-desc">August 28, Apple juice, Just sour apple juice🧃</div>
+    </div>
+    <!-- photo 11 -->
+    <div class="memory-card">
+      <img src="159f0b3d-7b3d-4324-a279-605f45fe37cc.jpg" alt="cute memory" loading="lazy">
+      <div class="memory-desc">August 15, We're so adorable🎀</div>
+    </div>
+
+    <div class="memory-card">
+      <video controls poster="8.mp4">
+        <source src="8.mp4" type="video/mp4">
+        Your browser doesn't support video.
+      </video>
+      <div class="memory-desc">August 22, Rosie is working on the problem, and Gillians and I are just dancing💃</div>
+    </div>
+    <!-- photo 12 -->
+    <div class="memory-card">
+      <img src="226ee986-1b7e-43c1-b0f9-40aad0734f79.jpg" alt="cute moment" loading="lazy">
+      <div class="memory-desc">August 28, My favorite picture💕</div>
+    </div>
+    <!-- photo 13 -->
+    <div class="memory-card">
+      <img src="872d55eb-0a9d-48a3-a99c-9fcd6aad49d8.jpg" alt="cute memory" loading="lazy">
+      <div class="memory-desc">August 29, Connected with nature🍃⛰️</div>
+    </div>
+    <!-- photo 14 -->
+    <div class="memory-card">
+      <img src="5048b81c-3e5f-4782-8e7a-bf2fb5964db3.jpg" alt="cute moment" loading="lazy">
+      <div class="memory-desc">August 26, I always get strange food🍽️</div>
+    </div>
+    <!-- photo 15 -->
+    <div class="memory-card">
+      <img src="40440723-1e5d-4856-8ede-79a36c01d448.jpg" alt="cute memory" loading="lazy">
+      <div class="memory-desc">August 15, 3 Aliens👽</div>
+    </div>
+    <!-- photo 16 -->
+    <div class="memory-card">
+      <img src="b280fa76-e190-4a2d-b280-b01a592417c0.jpg" alt="cute moment" loading="lazy">
+      <div class="memory-desc">August 15, A creepy door🚪</div>
+    </div>
+    <!-- photo 17 -->
+    <div class="memory-card">
+      <img src="c357eaa2-2075-4ddd-b823-b81a714d5973.jpg" alt="cute memory" loading="lazy">
+      <div class="memory-desc">August 1, Outlets </div>
+    </div>
+    <!-- photo 18 -->
+    <div class="memory-card">
+      <img src="cc768a87-a4f8-4742-bfef-b4ecd45369dd.jpg" alt="cute moment" loading="lazy">
+      <div class="memory-desc">August 26, Big robot🤖</div>
+    </div>
+    <!-- photo 19 -->
+    <div class="memory-card">
+      <img src="d513dec8-6399-4a0d-96a3-a55045a508ca.jpg" alt="cute memory" loading="lazy">
+      <div class="memory-desc">August 22, Struggled to make a heart🤍</div>
+    </div>
+    <!-- photo 20 -->
+    <div class="memory-card">
+      <img src="dc1d0951-ad8a-4f26-aa5b-948c18cc6e55.jpg" alt="cute moment" loading="lazy">
+      <div class="memory-desc">August 28, Rosie and drunk Emi, peace2✌</div>
+    </div>
+
+    <div class="memory-card">
+      <video controls poster="7.mp4">
+        <source src="7.mp4" type="video/mp4">
+        Your browser doesn't support video.
+      </video>
+      <div class="memory-desc">Augsut 15, It was really fun here🤪</div>
+    </div>
+    <!-- photo 21 -->
+    <div class="memory-card">
+      <img src="ef90eaa7-ae8c-4115-8bd9-757710c08ac6.jpg" alt="cute memory" loading="lazy">
+      <div class="memory-desc">August 22, Love you my Rosie❤️</div>
+    </div>
+    <!-- photo 22 -->
+    <div class="memory-card">
+      <img src="f58e12ec-78ab-4240-b0d0-98c521f976f1.jpg" alt="cute moment" loading="lazy">
+      <div class="memory-desc">August 22, Emi is thinking about life💭</div>
+    </div>
+    <!-- photo 23 -->
+    <div class="memory-card">
+      <img src="f93d8a6b-cabb-45b5-92d6-c0ded57b5489.jpg" alt="cute memory" loading="lazy">
+      <div class="memory-desc">August 22, side smile😏</div>
+    </div>
+    <!-- photo 24 -->
+    <div class="memory-card">
+      <img src="f0819f1f-765f-4437-9570-06074d993e6f.jpg" alt="cute moment" loading="lazy">
+      <div class="memory-desc">August 26, scary Mona Lisa🖼</div>
+    </div>
+    <!-- video card (with short description) -->
+    <div class="memory-card">
+      <video controls poster="6.mp4">
+        <source src="6.mp4" type="video/mp4">
+        Your browser doesn't support video.
+      </video>
+      <div class="memory-desc">August 15, Bobaaaa</div>
+    </div>
+    <!-- photo 25 -->
+    <div class="memory-card">
+      <img src="1.jpg" alt="cute memory" loading="lazy">
+      <div class="memory-desc">August 10, Thinking about life💭📦</div>
+    </div>
+
+  <div class="footer-hearts">(╥﹏╥) Miss juu≽(◉˕ ◉ ≼マ</div>
+</div>
+
+<script>
+  function openLetter() {
+    // hide envelope, show letter
+    document.getElementById('envelopeWrapper').classList.add('hidden');
+    document.getElementById('letterPaper').classList.remove('hidden');
+  }
+
+  function closeLetter() {
+    // hide letter, show envelope again
+    document.getElementById('letterPaper').classList.add('hidden');
+    document.getElementById('envelopeWrapper').classList.remove('hidden');
+  }
+
+  // optional: if you want to keep the photos always visible, nothing else needed.
+  // The original "See Our Memories" button is removed for a cleaner look,
+  // but if you want to add a separate toggle, you could. But gallery is always visible.
+</script>
+
+<!-- small note: placeholders are used for images/video; replace with your own files -->
+</body>
+</html>
